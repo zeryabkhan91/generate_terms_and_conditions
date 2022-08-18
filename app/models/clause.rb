@@ -3,7 +3,7 @@ class Clause
   require 'pry'
 
   def initialize
-    path = Dir.pwd.gsub!("app", "") if Dir.pwd.include?('app')
+    path = Dir.pwd.include?('app')? Dir.pwd.gsub!("app", "") : Dir.pwd
     file = File.read("#{path}dataset/clauses.json")
     @clauses = JSON.parse(file)
   end

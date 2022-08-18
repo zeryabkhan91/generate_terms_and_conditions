@@ -30,7 +30,7 @@ class TermsAndConditionsGenerator
   end
 
   def store_output
-    path = Dir.pwd.gsub!("app", "") if Dir.pwd.include?('app')
+    path = Dir.pwd.include?('app')? Dir.pwd.gsub!("app", "") : Dir.pwd
     File.write("#{path}Output/#{@file_name}", @template_content, mode: "w")
   end
 end
