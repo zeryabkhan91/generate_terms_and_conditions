@@ -1,6 +1,6 @@
 This document is made of plaintext.
 Is made of The quick brown fox.
-Is made of And dies.
+Is made of jumps over the lazy dog.
 Is made of The quick brown fox;jumps over the lazy dog.
 
 Your legals

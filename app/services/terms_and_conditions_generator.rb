@@ -1,16 +1,22 @@
+require_relative "../modules/path.rb"
+
 class TermsAndConditionsGenerator
+  include Path
+
   def initialize(template_path)
-    @template_content = File.read(template_path)
-    @file_name = template_path.split('/').last
+    read_template(template_path)
+
     @clause = Clause.new
     @section = Section.new
   end
 
-  def process
+  def process!
     @dynamic_contents = @template_content.scan(/(?<=\[).*?(?=\])/)
     clauses, sections = separte_clauses_and_sections
+
     replace_sections(clauses, @clause)
     replace_sections(sections, @section)
+
     store_output
   end
 
@@ -30,7 +36,12 @@ class TermsAndConditionsGenerator
   end
 
   def store_output
-    path = Dir.pwd.include?('app')? Dir.pwd.gsub!("app", "") : Dir.pwd
-    File.write("#{path}Output/#{@file_name}", @template_content, mode: "w")
+    path = root_path
+    File.write("#{path}/Output/#{@file_name}", @template_content, mode: "w")
+  end
+
+  def read_template(template_path)
+    @template_content = File.read(template_path)
+    @file_name = template_path.split("/").last
   end
 end
