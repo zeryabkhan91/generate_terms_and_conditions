@@ -9,11 +9,14 @@
 6. You need to store dataset inside the folder named /dataset, this folder contains 2 files clauses.json and sections.json sample dataset is already added into the folder.
 7. You can also input a filename from command line by passing the name of the file with the txt extention.
 
-# System components
-  1. Data models are present inside ```app/models``` folder.
-  2. Terms and condition service is present inside ```app/services``` folder.
-  3. common modules are present inside ```app/modules``` folder.
-  4. main script of our application is app/main.rb.
+### System components
+  1. Required ruby version ```2.7.5```
+  2. Required bundler version ```2.3.10```
+  3. I am serving all the gems inside `.bundle` directly no need to run `bundle install` command
+  4. Data models are present inside ```app/models``` folder.
+  5. Terms and condition service is present inside ```app/services``` folder.
+  6. common modules are present inside ```app/modules``` folder.
+  7. main script of our application is app/main.rb.
 
 ## Steps to execute the script
 
